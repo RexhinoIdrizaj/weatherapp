@@ -1,32 +1,36 @@
 module.exports = {
   root: true,
+  parser: '@typescript-eslint/parser',
+  extends: [
+    'plugin:react-native/all',
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+  ],
   plugins: [
     'react',
+    'react-native',
     'react-hooks',
     '@typescript-eslint',
-    'react-native',
     'prettier',
   ],
   env: {
-    'react-native/react-native': true,
-    es6: true,
+    browser: true,
     node: true,
-    jest: true,
+    commonjs: true,
+    es6: true,
+    'react-native/react-native': true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react-native/all',
-    'plugin:react-hooks/recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
-  ],
-  rules: {
-    'prettier/prettier': 'error',
-  },
+
   settings: {
     react: {
       version: 'detect',
     },
+  },
+  rules: {
+    'prettier/prettier': 'error',
+    'react-native/no-unused-styles': 'off',
   },
 };

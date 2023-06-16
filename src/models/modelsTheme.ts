@@ -1,0 +1,4 @@
+import { THEME_DARK, THEME_LIGHT } from '../theme';
+
+export type TTheme = typeof THEME_LIGHT & typeof THEME_DARK;
+export type TStylesParam<T, P> = (theme: TTheme, props?: P) => T;
