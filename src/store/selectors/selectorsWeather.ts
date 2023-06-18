@@ -25,7 +25,7 @@ export const selectCitiesList = createSelector(
 );
 export const selectCity = createSelector(
   selectCitiesAdapter,
-  state => (id: string) => {
-    return entityAdaptersSelectors.selectById(state, id);
+  state => (cityName: string) => {
+    return entityAdaptersSelectors.selectById(state, cityName);
   },
 );

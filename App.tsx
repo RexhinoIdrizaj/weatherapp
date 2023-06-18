@@ -1,24 +1,22 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
 
 import { RootNavigator } from './src/navigation';
 import { Provider } from 'react-redux';
 import { store } from './src/store';
+import { UISafeAreaView, UIStatusBar } from './src/components';
+import { ProviderTheme } from './src/providers';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <SafeAreaView style={styles.container}>
-        <RootNavigator />
-      </SafeAreaView>
+      <ProviderTheme>
+        <UIStatusBar />
+        <UISafeAreaView>
+          <RootNavigator />
+        </UISafeAreaView>
+      </ProviderTheme>
     </Provider>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;

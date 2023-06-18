@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Pressable, ScrollView, Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
@@ -7,6 +7,7 @@ import { TRootStackParamList, TRoutes } from '../models';
 import { useAppDispatch, useAppSelector } from '../store';
 import { thunkWeather } from '../store/thunks';
 import { selectCitiesList } from '../store/selectors';
+import { CityItem, UIHeader } from '../components';
 
 type TScreenCitiesNavProps = NativeStackNavigationProp<TRootStackParamList>;
 
@@ -21,9 +22,16 @@ const ScreenCities = () => {
 
   return (
     <View>
+      <UIHeader title="Cities" />
       <ScrollView>
         {cities.map(el => (
-          <Text>{el.cityName}</Text>
+          <CityItem
+            key={el.cityName}
+            cityName={el.cityName}
+            onPress={() =>
+              navigation.push(TRoutes.CityDetails, { cityName: el.cityName })
+            }
+          />
         ))}
       </ScrollView>
     </View>

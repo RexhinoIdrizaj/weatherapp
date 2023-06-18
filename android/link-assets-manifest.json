@@ -2,12 +2,12 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "src/assets/fonts/Roboto-Bold.ttf",
-      "sha1": "6cbb57ba2355cf442e06899898ff5af55867103e"
+      "path": "src/assets/fonts/Futura-Bold.ttf",
+      "sha1": "1bcd70a20cff464c22ac4c9519fb9f72dd9be22a"
     },
     {
-      "path": "src/assets/fonts/Roboto-Regular.ttf",
-      "sha1": "1d1d41fcadc571decb6444211b7993b99ce926e2"
+      "path": "src/assets/fonts/Futura-Book.ttf",
+      "sha1": "68fab471b5d366f87ade01b7f6c810d3a078a298"
     }
   ]
 }

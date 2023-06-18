@@ -14,8 +14,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-WeatherApp-WeatherAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-WeatherApp-WeatherAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		8AAF21D521CB4B2F949FE58F /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CAB5822C525C414B841E0522 /* Roboto-Bold.ttf */; };
-		C4F4C38CD2D6418E8DAD0B96 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA4DE5FD2CA048FD97E4506D /* Roboto-Regular.ttf */; };
+		2277D276F1A04C00AA1CEED7 /* Futura-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 638107206AAA4106AD0541E4 /* Futura-Bold.ttf */; };
+		90EAE302F8F7444DB9CF8E6D /* Futura-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C67053298BEE403AA49F4BCC /* Futura-Book.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +47,8 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = WeatherApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-WeatherApp-WeatherAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp-WeatherAppTests.release.xcconfig"; path = "Target Support Files/Pods-WeatherApp-WeatherAppTests/Pods-WeatherApp-WeatherAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		CAB5822C525C414B841E0522 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; name = "Roboto-Bold.ttf"; path = "../src/assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		DA4DE5FD2CA048FD97E4506D /* Roboto-Regular.ttf */ = {isa = PBXFileReference; name = "Roboto-Regular.ttf"; path = "../src/assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		638107206AAA4106AD0541E4 /* Futura-Bold.ttf */ = {isa = PBXFileReference; name = "Futura-Bold.ttf"; path = "../src/assets/fonts/Futura-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C67053298BEE403AA49F4BCC /* Futura-Book.ttf */ = {isa = PBXFileReference; name = "Futura-Book.ttf"; path = "../src/assets/fonts/Futura-Book.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,8 +158,8 @@
 		C4F8A836F17246719DE62689 /* Resources */ = {
 			isa = "PBXGroup";
 			children = (
-				CAB5822C525C414B841E0522 /* Roboto-Bold.ttf */,
-				DA4DE5FD2CA048FD97E4506D /* Roboto-Regular.ttf */,
+				638107206AAA4106AD0541E4 /* Futura-Bold.ttf */,
+				C67053298BEE403AA49F4BCC /* Futura-Book.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -261,8 +261,8 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				8AAF21D521CB4B2F949FE58F /* Roboto-Bold.ttf in Resources */,
-				C4F4C38CD2D6418E8DAD0B96 /* Roboto-Regular.ttf in Resources */,
+				2277D276F1A04C00AA1CEED7 /* Futura-Bold.ttf in Resources */,
+				90EAE302F8F7444DB9CF8E6D /* Futura-Book.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

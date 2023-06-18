@@ -12,6 +12,7 @@ import { TRootStackParamList, TRoutes } from '../models';
 import { ScreenCities, ScreenCityDetails } from '../screens';
 import { ThemeContext } from '../providers';
 import { FONT_SIZE } from '../theme';
+
 // import {useHeaderOptions, useTheme} from '../hooks';
 // import {navigationRef} from './navigationRefs';
 
@@ -20,32 +21,42 @@ const Stack = createNativeStackNavigator<TRootStackParamList>();
 const RootNavigator: React.FC = () => {
   //   const {t} = useTranslation();
   const theme = useContext(ThemeContext);
-
-  const myTheme = useMemo(
-    () => ({
-      ...DefaultTheme,
-      colors: {
-        ...DefaultTheme.colors,
-        ...theme,
-      },
-    }),
-    [theme],
-  );
+  const myTheme = {
+    ...DefaultTheme,
+    dark: true,
+    colors: {
+      ...DefaultTheme.colors,
+      background: theme.screenBackground,
+    },
+  };
+  // const myTheme = useMemo(
+  //   () => ({
+  //     ...DefaultTheme,
+  //     colors: {
+  //       ...DefaultTheme.colors,
+  //       background: theme.screenBackground,
+  //     },
+  //   }),
+  //   [theme],
+  // );
 
   const headerOptions: NativeStackNavigationOptions = useMemo(
     () => ({
       headerTitleStyle: {
-        color: theme.white,
-        fontSize: FONT_SIZE.xxm,
+        color: theme.black,
+        fontSize: FONT_SIZE.fs_22,
       },
       headerStyle: {
-        backgroundColor: theme.primary,
+        backgroundColor: theme.transparent,
       },
-      headerTintColor: theme.white,
+      // headerTransparent: true,
+      headerShadowVisible: false,
+      headerTintColor: theme.black,
       headerTitleAlign: 'center',
     }),
     [theme],
   );
+
   return (
     <NavigationContainer
       theme={myTheme}
@@ -54,10 +65,18 @@ const RootNavigator: React.FC = () => {
       <Stack.Navigator
         initialRouteName={TRoutes.Cities}
         screenOptions={headerOptions}>
-        <Stack.Screen name={TRoutes.Cities} component={ScreenCities} />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name={TRoutes.Cities}
+          component={ScreenCities}
+        />
         <Stack.Screen
           name={TRoutes.CityDetails}
           component={ScreenCityDetails}
+          options={({ route }) => ({
+            // ...headerOptions,
+            title: route.params.cityName,
+          })}
         />
 
         {/* {__DEV__ && (

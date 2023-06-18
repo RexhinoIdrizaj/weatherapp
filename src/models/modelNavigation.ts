@@ -4,7 +4,7 @@ export enum TRoutes {
 }
 
 interface TCityDetailsDetailsParams {
-  id: string;
+  cityName: string;
 }
 
 export type TRootStackParamList = {

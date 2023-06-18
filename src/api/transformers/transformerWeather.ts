@@ -14,10 +14,11 @@ const transformTemperature = (tempType: TApiTempType, temp: number) => {
 };
 
 const transformToCityWeatherData = (item: TApiWeatherData) => {
+  const wantedTemp = transformTemperature(item.tempType, item.temp).toFixed(2);
   return {
     date: item.date,
-    formattedDate: format(parseISO(item.date), 'E, MMM d'),
-    wantedTemp: transformTemperature(item.tempType, item.temp),
+    formattedDate: format(parseISO(item.date), 'HH:mm'), //TODO: revist this format type and extract logic
+    wantedTemp: parseInt(wantedTemp),
     wantedTempType: 'C',
   };
 };

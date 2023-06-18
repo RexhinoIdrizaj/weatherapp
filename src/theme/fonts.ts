@@ -1,6 +1,6 @@
 const fonts = {
-  bold: 'Roboto-Bold',
-  regular: 'Roboto-Regular',
+  bold: 'Futura-Bold',
+  regular: 'Futura-Book',
 };
 
 export default fonts;

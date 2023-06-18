@@ -9,7 +9,7 @@ const fetchWeatherData = createAsyncThunk(
     if (thunkApi?.signal) apiWeather.cancelRequest();
     const response = await apiWeather.getWeather();
     const wantedData = transformGetWeatherResToAppData(response);
-    console.log('wantedData', wantedData);
+
     return wantedData;
   },
 );

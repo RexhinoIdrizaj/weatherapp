@@ -1,12 +1,13 @@
 const THEME_LIGHT = {
-  primary: '#5243AA',
+  primary: '#FFFFFF',
 
   success: '#52BD90',
   warning: '#FFAB00',
   error: '#BF4343',
 
   screenBackground: '#F4F5F7',
-  textColor: '#EBECEF',
+  textColorPrimary: '#000000',
+  textColorSecondary: '#AEB3BB',
 
   white: '#FFFFFF',
   black: '#000000',

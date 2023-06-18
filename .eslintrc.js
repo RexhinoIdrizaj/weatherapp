@@ -32,5 +32,11 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     'react-native/no-unused-styles': 'off',
+    'react-native/no-raw-text': [
+      'off',
+      {
+        skip: ['UIText'],
+      },
+    ],
   },
 };
