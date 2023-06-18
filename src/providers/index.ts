@@ -1,1 +1,3 @@
-export { default as ProviderTheme, ThemeContext } from './ProviderTheme';
+export { default as ProviderTheme } from './ProviderTheme';
+
+export * from './ProviderTheme';

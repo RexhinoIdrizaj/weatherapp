@@ -5,21 +5,25 @@ export interface TErrorResponse {
   message: string;
 }
 
-export interface TCity {
+/*
+ * API Common
+ */
+
+export interface TApiCity {
   name: string;
   picture: string;
 }
 
-export type TTempType = 'C' | 'F' | 'K';
+export type TApiTempType = 'C' | 'F' | 'K';
 
 /*
  * GET Weather
  */
 
-export interface TWeatherData {
+export interface TApiWeatherData {
   date: string;
-  city: TCity;
-  tempType: TTempType;
+  city: TApiCity;
+  tempType: TApiTempType;
   temp: number;
 }
-export type TGetWeatherResponse = TWeatherData[];
+export type TApiGetWeatherResponse = TApiWeatherData[];

@@ -1,5 +1,5 @@
-import { TGetWeatherResponse } from './modelApi';
 import ServiceNetwork from './serviceNetwork';
+import type { TApiGetWeatherResponse } from './modelApi';
 
 class ServiceWeather {
   protected networkService: ServiceNetwork;
@@ -7,8 +7,11 @@ class ServiceWeather {
   constructor(networkService: ServiceNetwork) {
     this.networkService = networkService;
   }
-  getWeather(): Promise<TGetWeatherResponse> {
-    return this.networkService.request<TGetWeatherResponse>('GET', '/weather');
+  getWeather(): Promise<TApiGetWeatherResponse> {
+    return this.networkService.request<TApiGetWeatherResponse>({
+      method: 'GET',
+      url: '/weather', //TODO: move this to an enum
+    });
   }
 
   // ... other  methods
