@@ -1,20 +1,16 @@
-import ServiceNetwork from './serviceNetwork';
-import type { TApiGetWeatherResponse } from './modelApi';
+import type { TApiGetWeatherResponse, TServiceNetwork } from './modelApi';
 
-class ServiceWeather {
-  protected networkService: ServiceNetwork;
-
-  constructor(networkService: ServiceNetwork) {
-    this.networkService = networkService;
-  }
-  getWeather(): Promise<TApiGetWeatherResponse> {
-    return this.networkService.request<TApiGetWeatherResponse>({
+function createServiceWeather(networkService: TServiceNetwork) {
+  const getWeather = (): Promise<TApiGetWeatherResponse> => {
+    return networkService.request<TApiGetWeatherResponse>({
       method: 'GET',
-      url: '/weather', //TODO: move this to an enum
+      url: '/weather',
     });
-  }
+  };
 
-  // ... other  methods
+  return {
+    getWeather,
+  };
 }
 
-export default ServiceWeather;
+export default createServiceWeather;

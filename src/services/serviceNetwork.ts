@@ -1,26 +1,28 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
-import type { TErrorResponse } from './modelApi';
+import axios, {
+  AxiosRequestConfig,
+  AxiosResponse,
+  CreateAxiosDefaults,
+} from 'axios';
+import type { TErrorResponse, TServiceNetwork } from './modelApi';
 
-class ServiceNetwork {
-  protected axiosInstance: AxiosInstance;
-  protected abortController: AbortController;
+function createServiceNetwork(
+  instanceConfig: CreateAxiosDefaults,
+): TServiceNetwork {
+  const axiosInstance = axios.create({
+    timeout: instanceConfig?.timeout || 100000,
+    ...instanceConfig,
+  });
 
-  constructor(baseURL: string) {
-    // console.log('baseURL', baseURL);
-    this.axiosInstance = axios.create({
-      baseURL,
-    });
-    this.abortController = new AbortController();
-  }
+  let abortController = new AbortController();
 
-  async request<R>(config: AxiosRequestConfig): Promise<R> {
+  const request = async <R>(requestConfig: AxiosRequestConfig): Promise<R> => {
     try {
-      const wantedConfig: AxiosRequestConfig = {
-        ...config,
-        signal: this.abortController.signal,
+      const wantedConfig = {
+        ...requestConfig,
+        signal: abortController.signal,
       };
 
-      const response: AxiosResponse<R> = await this.axiosInstance.request<R>(
+      const response: AxiosResponse<R> = await axiosInstance.request<R>(
         wantedConfig,
       );
 
@@ -33,12 +35,17 @@ class ServiceNetwork {
       };
       throw errorResponse;
     }
-  }
+  };
 
-  public cancelRequest(): void {
-    this.abortController.abort();
-    this.abortController = new AbortController();
-  }
+  const cancelRequest = () => {
+    abortController.abort();
+    abortController = new AbortController();
+  };
+
+  return {
+    request,
+    cancelRequest,
+  };
 }
 
-export default ServiceNetwork;
+export default createServiceNetwork;

@@ -1,26 +1,26 @@
-import ServiceWeather from './serviceWeather';
-import ServiceNetwork from './serviceNetwork';
+import { CreateAxiosDefaults } from 'axios';
 
-interface UnifiedAPI
-  extends ServiceWeather,
-    Pick<ServiceNetwork, 'cancelRequest'> {}
+import createServiceNetwork from './serviceNetwork';
+import createServiceWeather from './serviceWeather';
+import { TUnifiedApi } from './modelApi';
+
 /*
  * Wrapper to return multiple methods from multiple services if there are more than one in the future
  * One place to pass the config and for network layer.
  */
-const createUnifiedAPI = (baseURL: string) => {
-  const networkService = new ServiceNetwork(baseURL);
+function createUnifiedAPI(config: CreateAxiosDefaults): TUnifiedApi {
+  const networkService = createServiceNetwork(config);
 
   // Here the api that is needed to be exposed
-  const weatherService = new ServiceWeather(networkService);
+  const weatherService = createServiceWeather(networkService);
 
   const unifiedAPI = {
-    weatherService,
+    ...weatherService,
     cancelRequest: networkService.cancelRequest,
     // more services if needed.
   };
 
   return unifiedAPI;
-};
+}
 
 export default createUnifiedAPI;

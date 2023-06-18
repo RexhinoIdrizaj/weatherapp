@@ -1,9 +1,25 @@
+import { AxiosRequestConfig } from 'axios';
+
 export type TNullable<R> = R | null;
 
 export interface TErrorResponse {
   status: string;
   message: string;
 }
+
+/*
+ * Services interface
+ */
+export interface TServiceNetwork {
+  request: <R>(requestConfig: AxiosRequestConfig<any>) => Promise<R>;
+  cancelRequest: () => void;
+}
+export interface TServiceWeather {
+  getWeather: () => Promise<TApiGetWeatherResponse>;
+}
+
+export type TUnifiedApi = Pick<TServiceNetwork, 'cancelRequest'> &
+  TServiceWeather;
 
 /*
  * API Common
