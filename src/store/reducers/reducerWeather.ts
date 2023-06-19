@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { entityAdapterCities } from '../entityAdapters';
-import { actionWeather } from '../actions';
 import { thunkWeather } from '../thunks';
+// import { TSlicesNames } from '../configStore';
 
 export interface TStateWeather {
   loading: boolean;
@@ -15,7 +15,7 @@ const initialState: TStateWeather = {
 };
 
 export const weatherSlice = createSlice({
-  name: actionWeather.reducerWeatherName,
+  name: 'weather',
   initialState,
   reducers: {},
   extraReducers: builder => {

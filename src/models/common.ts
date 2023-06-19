@@ -1,4 +1,4 @@
-import { TApiTempType } from '../services/modelApi';
+import { TApiTempType } from '../services';
 
 export type TNullable<R> = R | null;
 

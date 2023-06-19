@@ -10,6 +10,10 @@ export const store = configureStore({
 
 export type TRootState = ReturnType<typeof store.getState>;
 export type TAppDispatch = typeof store.dispatch;
+// export enum TSlicesNames {
+//   weather = 'weather',
+//   settings = 'settings',
+// }
 
 export const useAppDispatch: () => TAppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<TRootState> = useSelector;

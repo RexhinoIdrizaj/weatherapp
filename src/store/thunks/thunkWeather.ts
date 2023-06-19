@@ -7,16 +7,20 @@ import {
   apiWeather,
   transformGetWeatherResToAppData,
 } from '../../api';
+import { selectIsConnected } from '../selectors/selectorsSettings';
+import { TRootState } from '../configStore';
 
 const fetchWeatherData = createAsyncThunk(
   actionWeather.fetchWeatherDataRequested,
-  async (_, thunkApi) => {
-    const isOnline = false; //TODO: change when implementing internet connection logic
-    if (!isOnline && apiRealm) {
+  async (_, { signal, getState }) => {
+    const state = getState() as TRootState;
+    const isConnected = selectIsConnected(state);
+    console.log('🚀 ~ file: thunkWeather.ts:18 ~ isConnected:', isConnected);
+    if (!isConnected && apiRealm) {
       const offlineData = apiRealm.getWeatherRealm();
       return offlineData;
     }
-    if (thunkApi?.signal) apiWeather.cancelRequest();
+    if (signal) apiWeather.cancelRequest();
     const response = await apiWeather.getWeather();
     const onlineData = transformGetWeatherResToAppData(response);
     if (onlineData) {
