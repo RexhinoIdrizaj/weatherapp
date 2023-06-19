@@ -28,7 +28,7 @@ function createServiceNetwork(
 
       return response.data;
     } catch (error) {
-      console.log('error', error);
+      // console.log('error request', JSON.stringify(error));
       const errorResponse: TErrorResponse = {
         status: 'some status',
         message: 'An error occurred', //TODO: revisit this logic

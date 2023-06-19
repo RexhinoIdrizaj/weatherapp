@@ -23,7 +23,10 @@ const TempListItem: FC<TTempListItemProps> = ({
         {time}
       </UIText>
       <UIText fontType="bold" style={themedStyles.tempText} size="fs_24">
-        {temperature}°<UIText size="fs_18">{tempType}</UIText>
+        {temperature}°
+        <UIText fontType="bold" size="fs_18">
+          {tempType}
+        </UIText>
       </UIText>
     </View>
   );

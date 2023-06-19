@@ -2,12 +2,12 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "src/assets/fonts/Futura Bold font.ttf",
-      "sha1": "1bcd70a20cff464c22ac4c9519fb9f72dd9be22a"
+      "path": "src/assets/fonts/Sora-Bold.ttf",
+      "sha1": "34256bc34281fd98b79f1831caffa5fb488fbbcb"
     },
     {
-      "path": "src/assets/fonts/Futura-Book.ttf",
-      "sha1": "68fab471b5d366f87ade01b7f6c810d3a078a298"
+      "path": "src/assets/fonts/Sora-Regular.ttf",
+      "sha1": "700024d4267334e6cec28523f213bf5c69c5a222"
     }
   ]
 }

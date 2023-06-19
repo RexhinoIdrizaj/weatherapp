@@ -1,6 +1,6 @@
 const fonts = {
-  bold: 'Futura-Bold',
-  regular: 'Futura-Book',
+  bold: 'Sora-Bold',
+  regular: 'Sora-Regular',
 };
 
 export default fonts;
