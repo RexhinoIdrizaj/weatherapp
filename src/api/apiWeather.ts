@@ -1,4 +1,4 @@
-import createUnifiedAPI from '../services';
+import { createUnifiedAPI } from '../services';
 
 const BASE_URL =
   'https://us-central1-mobile-assignment-server.cloudfunctions.net'; //TODO: REVISIT THIS TO USE ENV

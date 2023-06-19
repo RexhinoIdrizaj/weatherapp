@@ -12,7 +12,12 @@ const ScreenCityDetails = () => {
   } = useRoute<RouteProp<TRootStackParamList, TRoutes.CityDetails>>();
 
   const activeCity = useAppSelector(state => selectCity(state)(cityName));
-  // console.log('activeCity', activeCity);
+  const sortedData = activeCity
+    ? [...activeCity.cityWeatherData].sort((a, b) =>
+        a.date.localeCompare(b.date),
+      )
+    : [];
+
   return (
     <View style={styles.wrapper}>
       <Image
@@ -21,7 +26,7 @@ const ScreenCityDetails = () => {
       />
 
       <ScrollView contentContainerStyle={styles.tempsWrapper} horizontal>
-        {activeCity?.cityWeatherData.map(el => (
+        {sortedData.map(el => (
           <TempListItem
             key={el.date}
             temperature={el.wantedTemp}

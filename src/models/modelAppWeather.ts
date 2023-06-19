@@ -12,9 +12,5 @@ export interface TAppCitiesData {
 }
 
 export interface TCitiesAcc {
-  [cityName: string]: {
-    cityName: string;
-    cityPicture: string;
-    cityWeatherData: TAppCityWeatherData[];
-  };
+  [cityName: string]: TAppCitiesData;
 }

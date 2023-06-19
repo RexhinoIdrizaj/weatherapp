@@ -5,7 +5,7 @@ import {
   TApiGetWeatherResponse,
   TApiTempType,
   TApiWeatherData,
-} from '../../services/modelApi';
+} from '../../services';
 import { tempConverters } from '../../utils';
 
 const transformTemperature = (tempType: TApiTempType, temp: number) => {
@@ -23,32 +23,37 @@ const transformToCityWeatherData = (item: TApiWeatherData) => {
   };
 };
 
+const groupCityData = (data: TApiGetWeatherResponse): TCitiesAcc =>
+  data.reduce((acc: TCitiesAcc, item: TApiWeatherData) => {
+    const cityName = item.city.name;
+
+    if (acc[cityName]) {
+      // If the city already exists, add the weather data
+      acc[cityName].cityWeatherData.push(transformToCityWeatherData(item));
+    } else {
+      // If the city doesn't exist, create a new entry
+      acc[cityName] = {
+        cityName,
+        cityPicture: item.city?.picture,
+        cityWeatherData: [transformToCityWeatherData(item)],
+      };
+    }
+
+    return acc;
+  }, {});
+
 /*
  * GET weather transformer
  */
 export const transformGetWeatherResToAppData = (
   response: TApiGetWeatherResponse,
 ): TAppCitiesData[] => {
-  const uniqueCitiesData = response.reduce(
-    (acc: TCitiesAcc, item: TApiWeatherData) => {
-      const cityName = item.city.name;
+  const groupedData = groupCityData(response);
+  const groupedDataToArray = Object.values(groupedData);
 
-      if (acc[cityName]) {
-        // If the city already exists, add the weather data
-        acc[cityName].cityWeatherData.push(transformToCityWeatherData(item));
-      } else {
-        // If the city doesn't exist, create a new entry
-        acc[cityName] = {
-          cityName,
-          cityPicture: item.city?.picture,
-          cityWeatherData: [transformToCityWeatherData(item)],
-        };
-      }
+  // groupedDataToArray.forEach(cityData => {
+  //   cityData.cityWeatherData.sort((a, b) => a.date.localeCompare(b.date));
+  // });
 
-      return acc;
-    },
-    {},
-  );
-
-  return Object.values(uniqueCitiesData);
+  return groupedDataToArray;
 };
