@@ -57,8 +57,8 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Futura-Bold.ttf</string>
 		<string>Futura-Book.ttf</string>
+		<string>Futura Bold font.ttf</string>
 	</array>
 </dict>
 </plist>

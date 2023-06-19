@@ -36,7 +36,7 @@ const styles = (theme: TTheme, props: TStylesProps) => {
   return StyleSheet.create({
     text: {
       color: theme[props.color],
-      // fontFamily: fonts[props.fontType],
+      fontFamily: fonts[props.fontType],
       fontSize: FONT_SIZE[props.size],
     },
   });

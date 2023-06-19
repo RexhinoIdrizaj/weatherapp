@@ -5,6 +5,7 @@ import { TRootStackParamList, TRoutes } from '../models';
 import { useAppSelector } from '../store';
 import { selectCity } from '../store/selectors';
 import { TempListItem } from '../components';
+import FastImage from 'react-native-fast-image';
 
 const ScreenCityDetails = () => {
   const {
@@ -20,7 +21,7 @@ const ScreenCityDetails = () => {
 
   return (
     <View style={styles.wrapper}>
-      <Image
+      <FastImage
         style={styles.mainImage}
         source={{ uri: activeCity?.cityPicture }}
       />

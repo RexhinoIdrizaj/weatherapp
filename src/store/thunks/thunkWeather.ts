@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import FastImage from 'react-native-fast-image';
 
 import { actionWeather } from '../actions';
 import {
@@ -19,9 +20,9 @@ const fetchWeatherData = createAsyncThunk(
     const response = await apiWeather.getWeather();
     const onlineData = transformGetWeatherResToAppData(response);
     if (onlineData) {
-      const el0 = onlineData[0];
-      const el1 = onlineData[1];
-      apiRealm?.saveWeatherRealm([el0, el1]);
+      apiRealm?.saveWeatherRealm(onlineData);
+      const imagesToSave = onlineData.map(el => ({ uri: el.cityPicture }));
+      FastImage.preload(imagesToSave);
     }
     return onlineData;
   },
