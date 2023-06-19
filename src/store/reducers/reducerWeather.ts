@@ -28,6 +28,7 @@ export const weatherSlice = createSlice({
         const sortedData = payload.sort((a, b) =>
           a.cityName.localeCompare(b.cityName),
         );
+        state.loading = false;
         state.citiesData = entityAdapterCities.setAll(
           state.citiesData,
           sortedData,

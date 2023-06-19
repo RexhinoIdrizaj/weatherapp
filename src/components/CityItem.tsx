@@ -1,28 +1,33 @@
 import { Pressable, StyleSheet, View } from 'react-native';
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 
 import { UIText } from './UI';
 import { useThemedStyles } from '../hooks';
-import { TTheme } from '../models';
+import { TRootStackParamList, TRoutes, TTheme } from '../models';
 import { BORDER_RADIUS } from '../theme';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
 
 interface TCityItemProps {
   cityName: string;
-  onPress: () => void;
   temp?: number;
   tempType?: string;
 }
 
-const CityItem: FC<TCityItemProps> = ({
-  cityName,
-  temp,
-  tempType,
-  onPress,
-}) => {
+const CityItem: FC<TCityItemProps> = ({ cityName, temp, tempType }) => {
   const [themedStyles] = useThemedStyles(styles);
+
+  const navigation =
+    useNavigation<NativeStackNavigationProp<TRootStackParamList>>();
+
+  const handlePress = useCallback(
+    () => navigation.push(TRoutes.CityDetails, { cityName }),
+    [cityName, navigation],
+  );
+
   return (
     <View style={themedStyles.wrapper}>
-      <Pressable onPress={onPress}>
+      <Pressable onPress={handlePress}>
         <UIText fontType="regular" size="fs_18">
           {cityName}
         </UIText>
@@ -49,7 +54,6 @@ const styles = (theme: TTheme) =>
       height: 80,
       justifyContent: 'space-between',
       marginBottom: 10,
-      marginHorizontal: 20,
       paddingHorizontal: 40,
     },
   });
