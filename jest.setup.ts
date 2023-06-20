@@ -23,3 +23,7 @@ jest.mock('./src/services/realm-service/serviceRealmConfig.ts', () => ({
   __esModule: true,
   default: jest.fn(() => MockRealm),
 }));
+
+jest.mock('react-native-config', () => ({
+  BASE_URL: 'https://someurl.com',
+}));
