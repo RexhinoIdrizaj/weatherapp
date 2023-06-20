@@ -1,12 +1,14 @@
-import { format, parseISO } from 'date-fns';
-
 import { TAppCitiesData, TCitiesAcc } from '../../models/modelAppWeather';
 import {
   TApiGetWeatherResponse,
   TApiTempType,
   TApiWeatherData,
 } from '../../services';
-import { tempConverters } from '../../utils';
+import {
+  date_time_format_types,
+  formatDateTime,
+  tempConverters,
+} from '../../utils';
 
 const transformTemperature = (tempType: TApiTempType, temp: number) => {
   const converter = tempConverters[tempType];
@@ -17,7 +19,7 @@ const transformToCityWeatherData = (item: TApiWeatherData) => {
   const wantedTemp = transformTemperature(item.tempType, item.temp).toFixed(2);
   return {
     date: item.date,
-    formattedDate: format(parseISO(item.date), 'HH:mm'), //TODO: revist this format type and extract logic
+    formattedDate: formatDateTime(item.date, date_time_format_types.time_H_m),
     wantedTemp: parseInt(wantedTemp),
     wantedTempType: 'C',
   };
@@ -49,11 +51,5 @@ export const transformGetWeatherResToAppData = (
   response: TApiGetWeatherResponse,
 ): TAppCitiesData[] => {
   const groupedData = groupCityData(response);
-  const groupedDataToArray = Object.values(groupedData);
-
-  // groupedDataToArray.forEach(cityData => {
-  //   cityData.cityWeatherData.sort((a, b) => a.date.localeCompare(b.date));
-  // });
-
-  return groupedDataToArray;
+  return Object.values(groupedData);
 };
