@@ -3,8 +3,6 @@ import { initReactI18next } from 'react-i18next';
 import * as RNLocalize from 'react-native-localize';
 
 import { en, nl } from './locales';
-import { getDataFromAsyncStorage, storeDataToAsyncStorage } from '../utils';
-import { EAsyncStorageKeys } from '../models';
 
 const defaultLang = 'en';
 
@@ -25,27 +23,23 @@ const languageDetector: LanguageDetectorAsyncModule = {
   async: true,
   detect: callback => {
     const getLanguage = async () => {
-      const savedLang = await getDataFromAsyncStorage(
-        EAsyncStorageKeys.LANGUAGE,
-      );
-      if (!savedLang) {
-        const findBestAvailableLanguage =
-          RNLocalize.findBestLanguageTag(LANG_CODES);
-        callback(findBestAvailableLanguage?.languageTag || defaultLang);
-        return;
-      }
-      callback(savedLang);
+      // const savedLang = await getDataFromAsyncStorage(
+      //   TAsyncStorageKeys.LANGUAGE,
+      // );
+      // if (!savedLang) {
+      const findBestAvailableLanguage =
+        RNLocalize.findBestLanguageTag(LANG_CODES);
+      callback(findBestAvailableLanguage?.languageTag || defaultLang);
+      return;
+      // }
+      // callback(savedLang);
     };
     getLanguage();
   },
   init: () => null,
-  cacheUserLanguage: (lng: string) => {
-    console.log(
-      '🚀 ~ file: index.ts:46 ~ languageDetector: LanguageDetectorAsyncModule.lng:',
-      lng,
-    );
-    storeDataToAsyncStorage(EAsyncStorageKeys.LANGUAGE, lng);
-  },
+  // cacheUserLanguage: (lng: string) => {
+  //   storeDataToAsyncStorage(TAsyncStorageKeys.LANGUAGE, lng);
+  // },
 };
 
 i18n
