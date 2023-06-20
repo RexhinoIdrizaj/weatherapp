@@ -9,6 +9,8 @@ const COLORS_THEME_DARK = {
   textColorPrimary: '#FFFFFF',
   textColorSecondary: '#FFFFFF',
 
+  rippleColor: '#333333',
+
   white: '#444444',
   black: '#FFFFFF',
   transparent: '#00000000',

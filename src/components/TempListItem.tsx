@@ -41,10 +41,9 @@ const styles = (theme: TTheme) =>
       backgroundColor: theme.white,
       borderRadius: 20,
       marginRight: 10,
-      maxHeight: 120,
       padding: 15,
     },
     tempText: {
-      marginTop: 15,
+      marginTop: 10,
     },
   });

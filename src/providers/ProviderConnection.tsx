@@ -1,19 +1,27 @@
 import { useNetInfo } from '@react-native-community/netinfo';
-import { useEffect } from 'react';
-import { useAppDispatch } from '../store';
-import { setConnectionStatus } from '../store/reducers';
+import { FC, PropsWithChildren, useEffect } from 'react';
+import RNBootSplash from 'react-native-bootsplash';
 
-const ProviderConnection = () => {
+import { useAppDispatch, useAppSelector } from '../store';
+import { setConnectionStatus } from '../store/reducers';
+import { selectIsConnected } from '../store/selectors/selectorsSettings';
+
+const ProviderConnection: FC<PropsWithChildren> = ({ children }) => {
   const netInfo = useNetInfo();
   const dispatch = useAppDispatch();
+  const isConnected = useAppSelector(selectIsConnected);
 
   useEffect(() => {
     const isConnected = netInfo.isConnected && netInfo.isInternetReachable;
-
-    dispatch(setConnectionStatus(!!isConnected));
+    if (netInfo.isConnected !== null && netInfo.isInternetReachable !== null)
+      dispatch(setConnectionStatus(!!isConnected));
   }, [dispatch, netInfo.isConnected, netInfo.isInternetReachable]);
 
-  return null;
+  useEffect(() => {
+    if (isConnected !== null) RNBootSplash.hide();
+  }, [isConnected]);
+
+  return isConnected !== null ? children : null;
 };
 
 export default ProviderConnection;

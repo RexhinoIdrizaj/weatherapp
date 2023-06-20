@@ -11,10 +11,11 @@ const App = () => {
     <Provider store={store}>
       <ProviderTheme>
         <UIStatusBar />
-        <ProviderConnection />
-        <UISafeAreaView>
-          <RootNavigator />
-        </UISafeAreaView>
+        <ProviderConnection>
+          <UISafeAreaView>
+            <RootNavigator />
+          </UISafeAreaView>
+        </ProviderConnection>
       </ProviderTheme>
     </Provider>
   );

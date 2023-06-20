@@ -25,17 +25,18 @@ const ScreenCityDetails = () => {
         style={styles.mainImage}
         source={{ uri: activeCity?.cityPicture }}
       />
-
-      <ScrollView contentContainerStyle={styles.tempsWrapper} horizontal>
-        {sortedData.map(el => (
-          <TempListItem
-            key={el.date}
-            temperature={el.wantedTemp}
-            time={el.formattedDate}
-            tempType={el.wantedTempType}
-          />
-        ))}
-      </ScrollView>
+      <View>
+        <ScrollView contentContainerStyle={styles.tempsWrapper} horizontal>
+          {sortedData.map(el => (
+            <TempListItem
+              key={el.date}
+              temperature={el.wantedTemp}
+              time={el.formattedDate}
+              tempType={el.wantedTempType}
+            />
+          ))}
+        </ScrollView>
+      </View>
     </View>
   );
 };

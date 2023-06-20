@@ -15,7 +15,7 @@ interface TCityItemProps {
 }
 
 const CityItem: FC<TCityItemProps> = ({ cityName, temp, tempType }) => {
-  const [themedStyles] = useThemedStyles(styles);
+  const [themedStyles, theme] = useThemedStyles(styles);
 
   const navigation =
     useNavigation<NativeStackNavigationProp<TRootStackParamList>>();
@@ -27,7 +27,14 @@ const CityItem: FC<TCityItemProps> = ({ cityName, temp, tempType }) => {
 
   return (
     <View style={themedStyles.wrapper}>
-      <Pressable onPress={handlePress}>
+      <Pressable
+        style={({ pressed }) =>
+          pressed
+            ? [themedStyles.pressable, themedStyles.pressed]
+            : themedStyles.pressable
+        }
+        android_ripple={{ color: theme.rippleColor }}
+        onPress={handlePress}>
         <UIText fontType="regular" size="fs_18">
           {cityName}
         </UIText>
@@ -45,15 +52,23 @@ export default CityItem;
 
 const styles = (theme: TTheme) =>
   StyleSheet.create({
-    wrapper: {
+    pressable: {
       alignItems: 'center',
+      flexDirection: 'row',
+      flex: 1,
+      justifyContent: 'space-between',
+      paddingHorizontal: 40,
+    },
+    pressed: {
+      backgroundColor: theme.rippleColor,
+      opacity: 0.85,
+    },
+    wrapper: {
       backgroundColor: theme.white,
       borderRadius: BORDER_RADIUS.br_30,
       flex: 1,
-      flexDirection: 'row',
       height: 80,
-      justifyContent: 'space-between',
       marginBottom: 10,
-      paddingHorizontal: 40,
+      overflow: 'hidden',
     },
   });

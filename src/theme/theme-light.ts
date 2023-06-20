@@ -9,6 +9,8 @@ const THEME_LIGHT = {
   textColorPrimary: '#000000',
   textColorSecondary: '#AEB3BB',
 
+  rippleColor: '#e8e8e8',
+
   white: '#FFFFFF',
   black: '#000000',
   transparent: '#00000000',
