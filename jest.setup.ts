@@ -13,3 +13,13 @@ jest.mock('react-native-bootsplash', () => {
 jest.mock('@react-native-async-storage/async-storage', () =>
   require('@react-native-async-storage/async-storage/jest/async-storage-mock'),
 );
+
+const MockRealm = {
+  objects: jest.fn(() => []),
+  write: jest.fn(),
+  delete: jest.fn(),
+};
+jest.mock('./src/services/realm-service/serviceRealmConfig.ts', () => ({
+  __esModule: true,
+  default: jest.fn(() => MockRealm),
+}));
