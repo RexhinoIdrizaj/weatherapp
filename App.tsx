@@ -1,5 +1,6 @@
 import React from 'react';
 
+import './src/localization';
 import { RootNavigator } from './src/navigation';
 import { Provider } from 'react-redux';
 import { store } from './src/store';

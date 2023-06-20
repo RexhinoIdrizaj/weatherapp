@@ -434,10 +434,14 @@ PODS:
     - React
   - RNBootSplash (4.7.2):
     - React-Core
+  - RNCAsyncStorage (1.18.2):
+    - React-Core
   - RNFastImage (8.6.3):
     - React-Core
     - SDWebImage (~> 5.11.1)
     - SDWebImageWebPCoder (~> 0.8.4)
+  - RNLocalize (3.0.0):
+    - React-Core
   - RNScreens (3.21.0):
     - React-Core
     - React-RCTImage
@@ -515,7 +519,9 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RealmJS (from `../node_modules/realm`)
   - RNBootSplash (from `../node_modules/react-native-bootsplash`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - RNFastImage (from `../node_modules/react-native-fast-image`)
+  - RNLocalize (from `../node_modules/react-native-localize`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -615,8 +621,12 @@ EXTERNAL SOURCES:
     :path: "../node_modules/realm"
   RNBootSplash:
     :path: "../node_modules/react-native-bootsplash"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-async-storage/async-storage"
   RNFastImage:
     :path: "../node_modules/react-native-fast-image"
+  RNLocalize:
+    :path: "../node_modules/react-native-localize"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   Yoga:
@@ -674,7 +684,9 @@ SPEC CHECKSUMS:
   ReactCommon: 08723d2ed328c5cbcb0de168f231bc7bae7f8aa1
   RealmJS: 8deebf00c84f499c654bc585583c54f55b586751
   RNBootSplash: c9b258d28eb97032adc676b1e3bc353f1c59e6f1
+  RNCAsyncStorage: ddc4ee162bfd41b0d2c68bf2d95acd81dd7f1f93
   RNFastImage: 5c9c9fed9c076e521b3f509fe79e790418a544e8
+  RNLocalize: 5944c97d2fe8150913a51ddd5eab4e23a82bd80d
   RNScreens: d037903436160a4b039d32606668350d2a808806
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
