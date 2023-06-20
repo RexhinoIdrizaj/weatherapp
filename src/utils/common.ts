@@ -10,8 +10,8 @@ export const tempConverters: TTempConverter = {
 };
 
 export const date_time_format_types = {
-  time_H_m: "'HH:mm'",
-  date_full: 'DD MMM, YYYY',
+  time_H_m: 'HH:mm',
+  date_full: 'dd MMM, yyyy',
 };
 
 export const formatDateTime = (

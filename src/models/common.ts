@@ -6,6 +6,6 @@ export type TTempConverter = {
   [key in TApiTempType]: (temp: number) => number;
 };
 
-export enum EAsyncStorageKeys {
+export enum TAsyncStorageKeys {
   LANGUAGE = 'LANGUAGE',
 }

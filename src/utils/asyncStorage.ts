@@ -1,8 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { EAsyncStorageKeys } from '../models';
+import { TAsyncStorageKeys } from '../models';
 
 export const storeDataToAsyncStorage = async (
-  key: EAsyncStorageKeys,
+  key: TAsyncStorageKeys,
   value: unknown,
 ) => {
   try {
@@ -14,7 +14,7 @@ export const storeDataToAsyncStorage = async (
 };
 
 export const mergeDataToAsyncStorage = async (
-  key: EAsyncStorageKeys,
+  key: TAsyncStorageKeys,
   value: unknown,
 ) => {
   try {
@@ -25,7 +25,7 @@ export const mergeDataToAsyncStorage = async (
   }
 };
 
-export const getDataFromAsyncStorage = async (key: EAsyncStorageKeys) => {
+export const getDataFromAsyncStorage = async (key: TAsyncStorageKeys) => {
   try {
     const jsonValue = await AsyncStorage.getItem(key);
     return jsonValue != null ? JSON.parse(jsonValue) : null;
@@ -35,7 +35,7 @@ export const getDataFromAsyncStorage = async (key: EAsyncStorageKeys) => {
 };
 
 export const getMultiDataFromAsyncStorage = async (
-  keys: EAsyncStorageKeys[],
+  keys: TAsyncStorageKeys[],
 ) => {
   try {
     const jsonValues = await AsyncStorage.multiGet(keys);

@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 
 import UIText from './UIText';
 import { useThemedStyles } from '../../hooks';
-import { TTheme } from '../../models';
+import { TTestKeys, TTheme } from '../../models';
 import { FONT_SIZE } from '../../theme';
 
 interface UIHeaderProps {
@@ -14,7 +14,9 @@ const UIHeader: FC<UIHeaderProps> = ({ title }) => {
   const [themedStyles] = useThemedStyles(styles);
   return (
     <View style={themedStyles.wrapper}>
-      <UIText style={themedStyles.title}>{title}</UIText>
+      <UIText testID={TTestKeys.UIHeaderTitle} style={themedStyles.title}>
+        {title}
+      </UIText>
     </View>
   );
 };

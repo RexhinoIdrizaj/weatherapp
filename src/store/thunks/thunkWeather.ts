@@ -7,14 +7,13 @@ import {
   apiWeather,
   transformGetWeatherResToAppData,
 } from '../../api';
-import { selectIsConnected } from '../selectors/selectorsSettings';
 import { TRootState } from '../configStore';
 
 const fetchWeatherData = createAsyncThunk(
   actionWeather.fetchWeatherDataRequested,
   async (_, { signal, getState }) => {
     const state = getState() as TRootState;
-    const isConnected = selectIsConnected(state);
+    const isConnected = state.settings.isConnected;
 
     if (!isConnected && apiRealm) {
       const offlineData = apiRealm.getWeatherRealm();

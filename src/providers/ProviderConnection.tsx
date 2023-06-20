@@ -4,12 +4,11 @@ import RNBootSplash from 'react-native-bootsplash';
 
 import { useAppDispatch, useAppSelector } from '../store';
 import { setConnectionStatus } from '../store/reducers';
-import { selectIsConnected } from '../store/selectors/selectorsSettings';
 
 const ProviderConnection: FC<PropsWithChildren> = ({ children }) => {
   const netInfo = useNetInfo();
   const dispatch = useAppDispatch();
-  const isConnected = useAppSelector(selectIsConnected);
+  const isConnected = useAppSelector(state => state.settings.isConnected);
 
   useEffect(() => {
     const isConnected = netInfo.isConnected && netInfo.isInternetReachable;
