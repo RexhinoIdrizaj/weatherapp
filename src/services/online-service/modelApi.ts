@@ -3,8 +3,8 @@ import { AxiosRequestConfig } from 'axios';
 export type TNullable<R> = R | null;
 
 export interface TErrorResponse {
-  status: string;
-  message: string;
+  status?: string;
+  message?: string;
 }
 
 /*

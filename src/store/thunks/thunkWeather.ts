@@ -15,7 +15,7 @@ const fetchWeatherData = createAsyncThunk(
   async (_, { signal, getState }) => {
     const state = getState() as TRootState;
     const isConnected = selectIsConnected(state);
-    console.log('🚀 ~ file: thunkWeather.ts:18 ~ isConnected:', isConnected);
+
     if (!isConnected && apiRealm) {
       const offlineData = apiRealm.getWeatherRealm();
       return offlineData;
@@ -24,7 +24,11 @@ const fetchWeatherData = createAsyncThunk(
     const response = await apiWeather.getWeather();
     const onlineData = transformGetWeatherResToAppData(response);
     if (onlineData) {
-      apiRealm?.saveWeatherRealm(onlineData);
+      try {
+        apiRealm?.saveWeatherRealm(onlineData);
+      } catch (error) {
+        console.log('error', error);
+      }
       const imagesToSave = onlineData.map(el => ({ uri: el.cityPicture }));
       FastImage.preload(imagesToSave);
     }

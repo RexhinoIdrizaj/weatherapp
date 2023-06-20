@@ -1,4 +1,5 @@
 import axios, {
+  AxiosError,
   AxiosRequestConfig,
   AxiosResponse,
   CreateAxiosDefaults,
@@ -28,10 +29,10 @@ function createServiceNetwork(
 
       return response.data;
     } catch (error) {
-      // console.log('error request', JSON.stringify(error));
+      const axiosError = error as AxiosError;
       const errorResponse: TErrorResponse = {
-        status: 'some status',
-        message: 'An error occurred', //TODO: revisit this logic
+        status: axiosError?.response?.status?.toString(),
+        message: axiosError?.message,
       };
       throw errorResponse;
     }

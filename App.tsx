@@ -3,7 +3,7 @@ import React from 'react';
 import { RootNavigator } from './src/navigation';
 import { Provider } from 'react-redux';
 import { store } from './src/store';
-import { UISafeAreaView, UIStatusBar } from './src/components';
+import { CustomError, UISafeAreaView, UIStatusBar } from './src/components';
 import { ProviderConnection, ProviderTheme } from './src/providers';
 
 const App = () => {
@@ -13,6 +13,7 @@ const App = () => {
         <UIStatusBar />
         <ProviderConnection>
           <UISafeAreaView>
+            <CustomError />
             <RootNavigator />
           </UISafeAreaView>
         </ProviderConnection>

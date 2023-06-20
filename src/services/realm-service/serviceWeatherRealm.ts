@@ -4,19 +4,15 @@ import { transformCityRealmToApp } from './transformersRealmToApp';
 
 const createServiceWeatherRealm = (realmInstance: Realm) => {
   const saveWeatherRealm = (weatherData: TAppCitiesData[]) => {
-    try {
-      realmInstance.write(() => {
-        weatherData.forEach(el => {
-          realmInstance.create(
-            ERealmObjectNames.City,
-            el,
-            Realm.UpdateMode.Modified,
-          );
-        });
+    realmInstance.write(() => {
+      weatherData.forEach(el => {
+        realmInstance.create(
+          ERealmObjectNames.City,
+          el,
+          Realm.UpdateMode.Modified,
+        );
       });
-    } catch (error) {
-      console.log('error creating cityData =>: ', error);
-    }
+    });
   };
   const getWeatherRealm = () => {
     const cities = realmInstance.objects<TAppCitiesData>(
