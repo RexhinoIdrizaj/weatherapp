@@ -18,28 +18,24 @@ export type TLangCodes = keyof typeof LANGUAGES;
 
 export const LANG_CODES = Object.keys(LANGUAGES);
 
+/*
+ * Here is handled the language detector
+ * Can be extended to  retrieve or get it from the storage to initialize it.
+ */
+
 const languageDetector: LanguageDetectorAsyncModule = {
   type: 'languageDetector',
   async: true,
   detect: callback => {
     const getLanguage = async () => {
-      // const savedLang = await getDataFromAsyncStorage(
-      //   TAsyncStorageKeys.LANGUAGE,
-      // );
-      // if (!savedLang) {
       const findBestAvailableLanguage =
         RNLocalize.findBestLanguageTag(LANG_CODES);
       callback(findBestAvailableLanguage?.languageTag || defaultLang);
       return;
-      // }
-      // callback(savedLang);
     };
     getLanguage();
   },
   init: () => null,
-  // cacheUserLanguage: (lng: string) => {
-  //   storeDataToAsyncStorage(TAsyncStorageKeys.LANGUAGE, lng);
-  // },
 };
 
 i18n

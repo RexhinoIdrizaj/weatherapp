@@ -15,6 +15,10 @@ const transformTemperature = (tempType: TApiTempType, temp: number) => {
   return converter(temp);
 };
 
+/*
+ * Transform data to UI layer interface for each city
+ */
+
 const transformToCityWeatherData = (item: TApiWeatherData) => {
   const wantedTemp = transformTemperature(item.tempType, item.temp).toFixed(2);
   return {
@@ -24,6 +28,10 @@ const transformToCityWeatherData = (item: TApiWeatherData) => {
     wantedTempType: 'C',
   };
 };
+
+/*
+ * Group Data for each unique city
+ */
 
 const groupCityData = (data: TApiGetWeatherResponse): TCitiesAcc =>
   data.reduce((acc: TCitiesAcc, item: TApiWeatherData) => {

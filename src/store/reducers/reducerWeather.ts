@@ -4,7 +4,7 @@ import { entityAdapterCities } from '../entityAdapters';
 import { thunkWeather } from '../thunks';
 import { TErrorResponse } from '../../services';
 import { TNullable } from '../../models';
-// import { TSlicesNames } from '../configStore';
+import { SliceNames } from '../../utils';
 
 export interface TStateWeather {
   loading: boolean;
@@ -19,7 +19,7 @@ const initialState: TStateWeather = {
 };
 
 export const weatherSlice = createSlice({
-  name: 'weather',
+  name: SliceNames.weather,
   initialState,
   reducers: {},
   extraReducers: builder => {

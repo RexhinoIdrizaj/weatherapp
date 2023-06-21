@@ -1,6 +1,6 @@
-// import { TSlicesNames } from '../configStore';
+import { SliceNames } from '../../utils';
 
-const fetchWeatherDataRequested = `weather/fetchWeatherData`;
+const fetchWeatherDataRequested = `${SliceNames.weather}/fetchWeatherData`;
 
 const actionWeather = {
   fetchWeatherDataRequested,

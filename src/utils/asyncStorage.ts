@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { TAsyncStorageKeys } from '../models';
 
 export const storeDataToAsyncStorage = async (
@@ -39,7 +40,7 @@ export const getMultiDataFromAsyncStorage = async (
 ) => {
   try {
     const jsonValues = await AsyncStorage.multiGet(keys);
-    const wantedValues: Record<string, any> = jsonValues.reduce(
+    const wantedValues: Record<string, unknown> = jsonValues.reduce(
       (accumulator, currentValue) => {
         return {
           ...accumulator,

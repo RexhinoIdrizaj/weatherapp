@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+
 import { TNullable } from '../../services';
-// import { TSlicesNames } from '../configStore';
+import { SliceNames } from '../../utils';
 
 export interface TStateSettings {
   isConnected: TNullable<boolean>;
@@ -11,7 +12,7 @@ const initialState: TStateSettings = {
 };
 
 export const settingsSlice = createSlice({
-  name: 'settings',
+  name: SliceNames.settings,
   initialState,
   reducers: {
     setConnectionStatus(

@@ -6,6 +6,10 @@ import axios, {
 } from 'axios';
 import type { TErrorResponse, TServiceNetwork } from './modelApi';
 
+/*
+ * Service responsible only for axios config.
+ */
+
 function createServiceNetwork(
   instanceConfig: CreateAxiosDefaults,
 ): TServiceNetwork {

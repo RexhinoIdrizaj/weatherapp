@@ -1,11 +1,12 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { TErrorResponse, TNullable } from '../../services';
+import { SerializedError } from '@reduxjs/toolkit/dist/createAsyncThunk';
 import {
   AnyAsyncThunk,
   RejectedActionFromAsyncThunk,
 } from '@reduxjs/toolkit/dist/matchers';
-import { SerializedError } from '@reduxjs/toolkit/dist/createAsyncThunk';
-// import { TSlicesNames } from '../configStore';
+
+import { TErrorResponse, TNullable } from '../../services';
+import { SliceNames } from '../../utils';
 
 export interface TStateErrors {
   networkError: TNullable<TErrorResponse>;
@@ -16,7 +17,7 @@ const initialState: TStateErrors = {
 };
 
 export const errorSlice = createSlice({
-  name: 'errors',
+  name: SliceNames.errors,
   initialState,
   reducers: {
     setNetworkError(

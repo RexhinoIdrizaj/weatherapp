@@ -11,7 +11,7 @@ export interface TErrorResponse {
  * Services interface
  */
 export interface TServiceNetwork {
-  request: <R>(requestConfig: AxiosRequestConfig<any>) => Promise<R>;
+  request: <R>(requestConfig: AxiosRequestConfig) => Promise<R>;
   cancelRequest: () => void;
 }
 export interface TServiceWeather {

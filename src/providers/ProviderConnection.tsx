@@ -1,3 +1,4 @@
+import React from 'react';
 import { useNetInfo } from '@react-native-community/netinfo';
 import { FC, PropsWithChildren, useEffect } from 'react';
 import RNBootSplash from 'react-native-bootsplash';
@@ -20,7 +21,7 @@ const ProviderConnection: FC<PropsWithChildren> = ({ children }) => {
     if (isConnected !== null) RNBootSplash.hide();
   }, [isConnected]);
 
-  return isConnected !== null ? children : null;
+  return isConnected !== null ? <>{children}</> : null;
 };
 
 export default ProviderConnection;

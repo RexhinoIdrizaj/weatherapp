@@ -4,22 +4,15 @@ import {
   NativeStackNavigationOptions,
   createNativeStackNavigator,
 } from '@react-navigation/native-stack';
-// import {Platform} from 'react-native';
-// import {useTranslation} from 'react-i18next';
-// import SplashScreen from 'react-native-splash-screen';
 
 import { TRootStackParamList, TRoutes } from '../models';
 import { ScreenCities, ScreenCityDetails } from '../screens';
 import { ThemeContext } from '../providers';
 import { FONT_SIZE } from '../theme';
 
-// import {useHeaderOptions, useTheme} from '../hooks';
-// import {navigationRef} from './navigationRefs';
-
 const Stack = createNativeStackNavigator<TRootStackParamList>();
 
 const RootNavigator: React.FC = () => {
-  //   const {t} = useTranslation();
   const theme = useContext(ThemeContext);
   const myTheme = {
     ...DefaultTheme,
@@ -29,16 +22,6 @@ const RootNavigator: React.FC = () => {
       background: theme.screenBackground,
     },
   };
-  // const myTheme = useMemo(
-  //   () => ({
-  //     ...DefaultTheme,
-  //     colors: {
-  //       ...DefaultTheme.colors,
-  //       background: theme.screenBackground,
-  //     },
-  //   }),
-  //   [theme],
-  // );
 
   const headerOptions: NativeStackNavigationOptions = useMemo(
     () => ({
@@ -49,7 +32,6 @@ const RootNavigator: React.FC = () => {
       headerStyle: {
         backgroundColor: theme.transparent,
       },
-      // headerTransparent: true,
       headerShadowVisible: false,
       headerTintColor: theme.black,
       headerTitleAlign: 'center',
@@ -58,10 +40,7 @@ const RootNavigator: React.FC = () => {
   );
 
   return (
-    <NavigationContainer
-      theme={myTheme}
-      //   onReady={() => SplashScreen.hide()}
-    >
+    <NavigationContainer theme={myTheme}>
       <Stack.Navigator
         initialRouteName={TRoutes.Cities}
         screenOptions={headerOptions}>
@@ -74,17 +53,9 @@ const RootNavigator: React.FC = () => {
           name={TRoutes.CityDetails}
           component={ScreenCityDetails}
           options={({ route }) => ({
-            // ...headerOptions,
             title: route.params.cityName,
           })}
         />
-
-        {/* {__DEV__ && (
-          <Stack.Screen
-            name={EAppRoutes.STORYBOOK}
-            component={ScreenStorybook}
-          />
-        )} */}
       </Stack.Navigator>
     </NavigationContainer>
   );

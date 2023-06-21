@@ -2,6 +2,10 @@ import { TAppCitiesData } from '../../models';
 import { ERealmObjectNames } from './modelRealm';
 import { transformCityRealmToApp } from './transformersRealmToApp';
 
+/*
+ * Service responsible for exposing realm methods for retrieved weather api data
+ */
+
 const createServiceWeatherRealm = (realmInstance: Realm) => {
   const saveWeatherRealm = (weatherData: TAppCitiesData[]) => {
     realmInstance.write(() => {

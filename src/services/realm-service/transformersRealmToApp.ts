@@ -1,5 +1,9 @@
 import { TAppCitiesData, TAppCityWeatherData } from '../../models';
 
+/*
+ * This transformers are needed to not directly expose Realm objects
+ */
+
 const transformCityWeatherRealmToApp = (
   cityWeatherDataRealm: TAppCityWeatherData,
 ): TAppCityWeatherData => {

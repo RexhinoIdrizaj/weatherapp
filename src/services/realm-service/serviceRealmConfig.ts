@@ -1,6 +1,10 @@
 import Realm from 'realm';
 import { CitySchema, CityWeatherDataSchema } from './schemasRealm';
 
+/*
+ * Service responsible only for realm config
+ */
+
 const createRealmInstance = () => {
   try {
     const realmInstance = new Realm({

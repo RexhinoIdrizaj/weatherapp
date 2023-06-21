@@ -1,11 +1,12 @@
-import { Image, ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import React from 'react';
 import { RouteProp, useRoute } from '@react-navigation/native';
+import FastImage from 'react-native-fast-image';
+
 import { TRootStackParamList, TRoutes } from '../models';
 import { useAppSelector } from '../store';
 import { selectCity } from '../store/selectors';
 import { TempListItem } from '../components';
-import FastImage from 'react-native-fast-image';
 
 const ScreenCityDetails = () => {
   const {

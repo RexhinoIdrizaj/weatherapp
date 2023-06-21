@@ -1,5 +1,5 @@
 import { StyleSheet, View, ViewProps } from 'react-native';
-import React, { FC, PropsWithChildren } from 'react';
+import React, { FC } from 'react';
 
 type TUIWrapperProps = ViewProps;
 

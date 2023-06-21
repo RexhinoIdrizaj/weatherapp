@@ -1,11 +1,8 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+
 import CityItem from '../../CityItem';
-import {
-  NavigationContainer,
-  NavigationProp,
-  useNavigation,
-} from '@react-navigation/native';
 
 const mockCityName = 'Amsterdam';
 const mockTemp = 25;

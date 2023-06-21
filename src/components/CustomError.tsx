@@ -21,20 +21,18 @@ const CustomError: FC = () => {
     return () => clearTimeout(timeout);
   }, [dispatch, networkError?.message]);
 
-  return (
-    networkError !== null && (
-      <View style={themedStyles.wrapper}>
-        <UIText style={themedStyles.title} fontType="bold" size="fs_20">
-          Error
-        </UIText>
-        {networkError?.status ? (
-          <UIText>{networkError?.message}</UIText>
-        ) : (
-          <UIText>Something went wrong</UIText>
-        )}
-      </View>
-    )
-  );
+  return networkError !== null ? (
+    <View style={themedStyles.wrapper}>
+      <UIText style={themedStyles.title} fontType="bold" size="fs_20">
+        Error
+      </UIText>
+      {networkError?.status ? (
+        <UIText>{networkError?.message}</UIText>
+      ) : (
+        <UIText>Something went wrong</UIText>
+      )}
+    </View>
+  ) : null;
 };
 
 export default CustomError;
