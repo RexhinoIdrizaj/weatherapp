@@ -2,12 +2,15 @@
   "name": "WeatherApp",
   "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node": ">=18.16"
+  },
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest --detectOpenHandles"
+    "test": "jest"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.18.2",

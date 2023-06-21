@@ -36,8 +36,6 @@ export const errorSlice = createSlice({
         state: TStateErrors,
         { error }: PayloadAction<unknown, string, unknown, SerializedError>,
       ) => {
-        console.log('🚀 ~ file: reducerErrors.ts:33 ~ payload:', error);
-
         state.networkError = error;
       },
     );

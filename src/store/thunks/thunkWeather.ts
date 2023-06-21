@@ -26,7 +26,7 @@ const fetchWeatherData = createAsyncThunk(
       try {
         apiRealm?.saveWeatherRealm(onlineData);
       } catch (error) {
-        console.log('error', error);
+        console.log('fetchWeatherData error', error);
       }
       const imagesToSave = onlineData.map(el => ({ uri: el.cityPicture }));
       FastImage.preload(imagesToSave);

@@ -40,10 +40,6 @@ export const weatherSlice = createSlice({
       },
     );
     builder.addCase(thunkWeather.fetchWeatherData.rejected, (state, action) => {
-      console.log(
-        '🚀 ~ file: reducerWeather.ts:39 ~ builder.addCase ~ action:',
-        action,
-      );
       state.error = action.error;
       state.loading = false;
     });
