@@ -28,15 +28,13 @@ const CitiesList: FC = () => {
   };
 
   const renderEmptyComponent = useCallback(
-    () => <UIListEmpty text="No Data" />,
-    [],
+    () => !loading && <UIListEmpty text="No Data" />,
+    [loading],
   );
 
   const handleRefresh = useCallback(() => {
     dispatch(thunkWeather.fetchWeatherData());
   }, [dispatch]);
-
-  if (loading) return <ActivityIndicator />;
 
   return (
     <UIViewWrapper>
